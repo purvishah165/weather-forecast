@@ -20,7 +20,7 @@ class Forecast extends React.Component{
                     <div className="weather-container">
                         {
                             this.props.location &&
-                            <span className="weather-value">{this.props.location}</span>
+                            <span className="weather-location">{this.props.location}</span>
                         }
 
                         {
