@@ -1,0 +1,70 @@
+.wrapper {
+    width: 450px;
+    background-color: #ebebeb;
+    border: 1px solid gray;
+}
+
+.main {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.main > * {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    border: 1px solid gray;
+}
+
+.location-form {
+    border: 1px solid gray;
+    margin: -1px;
+    padding: 20px;
+    height: 40px;
+}
+.weather-error {
+    color: #900;
+    font-size: 12px;
+    margin-left: 5px;
+}
+.days {
+    margin-top: -1px;
+}
+.days > button {
+    margin: -1px;
+    border: 1px solid gray;
+    flex: 1;
+    outline:none;
+}
+
+/* spin */
+.cover-spin {
+//display:none;
+    display: flex;
+    justify-content: center;
+}
+
+@-webkit-keyframes spin {
+    from {-webkit-transform:rotate(0deg);}
+    to {-webkit-transform:rotate(360deg);}
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+.cover-spin::after {
+    content:'';
+
+    margin: 10px 0;
+    width:20px;height:20px;
+    border-style:solid;
+    border-color:black;
+    border-top-color:transparent;
+    border-width: 4px;
+    border-radius:50%;
+    -webkit-animation: spin .8s linear infinite;
+    animation: spin .8s linear infinite;
+}
