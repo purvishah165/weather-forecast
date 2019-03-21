@@ -18,12 +18,13 @@ beforeEach(() => {
         }]
     }
     const mockGeoLocation = {
-        getCurrentPosition: jest.fn()/*.mockResolvedValue({
-            coords: {
-                latitude: '123',
-                longitude: '132'
-            }
-        })*/
+        getCurrentPosition: jest.fn()
+            .mockImplementationOnce((success) => Promise.resolve(success({
+                coords: {
+                    latitude: 51.1,
+                    longitude: 45.3
+                }
+            })))
     };
 
     global.navigator.geolocation = mockGeoLocation;
@@ -44,10 +45,8 @@ it('renders without crashing', () => {
 });
 
 it('should get the current geo coordinates for default location', async () => {
-
-
     const component = await buildComponent();
-
     expect(global.navigator.geolocation.getCurrentPosition).toHaveBeenCalled();
-    // expect(component.state('lat')).toEqual('123')
+    expect(component.state().lat).toEqual(51.1)
+    expect(component.state().lon).toEqual(45.3)
 });
